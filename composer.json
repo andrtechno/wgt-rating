@@ -1,13 +1,13 @@
 {
-  "name": "panix/wgt-slick",
-  "description": "Widget Slick",
+  "name": "panix/wgt-rating",
+  "description": "Widget Rating",
   "keywords": [
     "pixelion-cms",
     "extension",
     "widget",
-    "slick"
+    "rating"
   ],
-  "homepage": "https://github.com/andrtechno/wgt-slick",
+  "homepage": "https://github.com/andrtechno/wgt-rating",
   "type": "yii2-extension",
   "license": "MIT",
   "authors": [
@@ -18,11 +18,11 @@
     }
   ],
   "require": {
-    "bower-asset/slick-carousel": "@stable"
+    "bower-asset/jquery-raty": "v2.8.0"
   },
   "autoload": {
     "psr-4": {
-      "panix\\ext\\slick\\": ""
+      "panix\\ext\\rating\\": ""
     }
   }
 }

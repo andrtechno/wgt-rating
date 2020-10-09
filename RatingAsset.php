@@ -1,11 +1,11 @@
 <?php
 
-namespace panix\ext\slick;
+namespace panix\ext\rating;
 
 use yii\web\AssetBundle;
 
 
-class SlickAsset extends AssetBundle
+class RatingAsset extends AssetBundle
 {
 
     public $jsOptions = [
@@ -14,7 +14,7 @@ class SlickAsset extends AssetBundle
     /**
      * @var string the directory that contains the source asset files for this asset bundle.
      */
-    public $sourcePath = '@bower/slick-carousel';
+    public $sourcePath = '@bower/jquery-raty';
 
     /**
      * @var array list of CSS files that this bundle contains.

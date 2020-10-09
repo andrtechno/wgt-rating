@@ -1,12 +1,12 @@
 <?php
 
-namespace panix\ext\slick;
+namespace panix\ext\rating;
 
 use yii\helpers\Html;
 use yii\base\Widget;
 use yii\helpers\Json;
 
-class SlickWidget extends Widget
+class RatingWidget extends Widget
 {
 
     /**
