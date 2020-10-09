@@ -22,13 +22,12 @@ class RatingWidget extends Widget
 
     /**
      * @var array the HTML attributes for the widget container
-     * Defaults to an auto generated id and class => "slick-carousel"
+     * Defaults to an auto generated id and class => "raty"
      */
     public $containerOptions = [];
 
     /**
      * @var array options for the Slick plugin
-     * @link https://kenwheeler.github.io/slick/ Available Options
      */
     public $options = [];
 
@@ -41,7 +40,7 @@ class RatingWidget extends Widget
         $view = $this->getView();
         $this->registerAssets($view);
         if (!isset($this->containerOptions['class'])) {
-            $this->containerOptions['class'] = 'slick-carousel';
+            $this->containerOptions['class'] = 'raty';
         }
         $this->initOptions();
         echo Html::beginTag($this->containerTag, $this->containerOptions) . "\n";
@@ -55,7 +54,7 @@ class RatingWidget extends Widget
         $this->containerOptions = array_merge([
             'id' => $this->getId()
         ], $this->containerOptions);
-        Html::addCssClass($this->containerOptions, 'slick-carousel');
+        Html::addCssClass($this->containerOptions, 'raty');
     }
 
     /**
@@ -65,8 +64,8 @@ class RatingWidget extends Widget
      */
     public function registerAssets($view)
     {
-        SlickAsset::register($view);
-        $js = 'jQuery("#' . $this->getId() . '").slick(' . Json::encode($this->options) . ');';
+        RatingAsset::register($view);
+        $js = 'jQuery("#' . $this->getId() . '").raty(' . Json::encode($this->options) . ');';
         $view->registerJs($js, $view::POS_END);
     }
 

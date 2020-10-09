@@ -1,11 +1,7 @@
-Slick Widget
+Rating Widget
 ============================
 
-The Slick is a Yii2 wrapper for the [Slick] (https://kenwheeler.github.io/slick/)
-
-[![Latest Stable Version](https://poser.pugx.org/anix/wgt-owlcarousel/v/stable.svg)](https://packagist.org/packages/anix/wgt-owlcarousel)
-[![Total Downloads](https://poser.pugx.org/anix/wgt-owlcarousel/downloads.svg)](https://packagist.org/packages/anix/wgt-owlcarousel)
-
+The Rating is a Yii2 wrapper for the [jQuery raty] (https://github.com/wbotelhos/raty)
 
 Installation
 ------------
@@ -15,13 +11,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer require --prefer-dist panix/wgt-slick "*"
+php composer require --prefer-dist panix/wgt-rating "*"
 ```
 
 or add
 
 ```
-"panix/wgt-slick": "*"
+"panix/wgt-rating": "*"
 ```
 
 to the require section of your `composer.json` file.
@@ -33,9 +29,9 @@ Once the extension is installed, simply use it in your code by  :
 
 ```php
 <?php
-use panix\ext\slick\SlickWidget;
+use panix\ext\rating\RatingWidget;
 
-SlickWidget::begin([
+RatingWidget::begin([
     'containerTag' => 'div',
     'containerOptions' => [
         'class' => 'container-class'
@@ -80,4 +76,4 @@ SlickWidget::begin([
 <div class="item-class"><img src="/img/4.jpg" alt="Image 4"></div>
 
 
-<?php SlickWidget::end(); ?>
+<?php RatingWidget::end(); ?>

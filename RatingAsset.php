@@ -14,21 +14,20 @@ class RatingAsset extends AssetBundle
     /**
      * @var string the directory that contains the source asset files for this asset bundle.
      */
-    public $sourcePath = '@bower/jquery-raty';
+    public $sourcePath = '@bower/jquery-raty/lib';
 
     /**
      * @var array list of CSS files that this bundle contains.
      */
     public $css = [
-        'slick/slick.css',
-        'slick/slick-theme.css',
+        'jquery.raty.css',
     ];
 
     /**
      * @var array list of JavaScript files that this bundle contains.
      */
     public $js = [
-        'slick/slick.min.js',
+        'jquery.raty.js',
     ];
 
     /**
