@@ -31,49 +31,13 @@ Once the extension is installed, simply use it in your code by  :
 <?php
 use panix\ext\rating\RatingWidget;
 
-RatingWidget::begin([
+echo RatingWidget::widget([
     'containerTag' => 'div',
     'containerOptions' => [
         'class' => 'container-class'
     ],
     'options' => [
-        'dots' => true,
-        'infinite' => false,
-        'slidesToShow' => 4,
-        'slidesToScroll' => 4,
-        'responsive' => [
-            [
-                'breakpoint' => 1024,
-                'settings' => [
-                    'slidesToShow' => 3,
-                    'slidesToScroll' => 3,
-                    'infinite' => true,
-                    'dots' => true
-                ]
-            ],
-            [
-                'breakpoint' => 600,
-                'settings' => [
-                    'slidesToShow' => 2,
-                    'slidesToScroll' => 2
-                ]
-            ],
-            [
-                'breakpoint' => 480,
-                'settings' => [
-                    'slidesToShow' => 1,
-                    'slidesToScroll' => 1
-                ]
-            ]
-        ]
+           // https://github.com/wbotelhos/raty#options
     ]
 ]);
 ?>
-
-<div class="item-class"><img src="/img/1.jpg" alt="Image 1"></div>
-<div class="item-class"><img src="/img/2.jpg" alt="Image 2"></div>
-<div class="item-class"><img src="/img/3.jpg" alt="Image 3"></div>
-<div class="item-class"><img src="/img/4.jpg" alt="Image 4"></div>
-
-
-<?php RatingWidget::end(); ?>

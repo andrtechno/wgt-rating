@@ -28,6 +28,7 @@ class RatingWidget extends Widget
 
     /**
      * @var array options for the Slick plugin
+     * https://github.com/wbotelhos/raty#options
      */
     public $options = [];
 
