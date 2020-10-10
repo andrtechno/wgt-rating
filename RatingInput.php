@@ -104,12 +104,8 @@ class RatingInput extends InputWidget
             $this->options['starOn'] = $this->imagePath . 'star-on.png';
         }
 
-        // $name = isset($options['name']) ? $options['name'] : Html::getInputName($this->model, $this->attribute);
         if (!isset($this->options['scoreName'])) {
-            $this->options['score'] = $this->hasModel() ? Html::getAttributeValue($this->model, $this->attribute) : $this->value;
-
-
-            //  $this->options['scoreName'] = $name;
+            $this->options['scoreName'] = $this->hasModel() ? Html::getInputName($this->model, $this->attribute) : $this->name;
         }
         $js = 'jQuery("#' . $this->getId() . '").raty(' . Json::encode($this->options) . ');';
         $view->registerJs($js, $view::POS_END);
