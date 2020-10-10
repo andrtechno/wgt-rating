@@ -27,6 +27,7 @@ class RatingInput extends InputWidget
      * https://github.com/wbotelhos/raty#options
      */
     public $options = [];
+    public $imagePath;
 
     /**
      * Initializes the widget.
@@ -42,17 +43,19 @@ class RatingInput extends InputWidget
         $this->initOptions();
         echo Html::beginTag($this->containerTag, $this->containerOptions) . "\n";
     }
+
     public function run()
     {
         echo "\n" . Html::endTag($this->containerTag);
     }
+
     public function run2()
     {
-       /* if ($this->hasModel()) {
-            return Html::activeTextInput($this->model, $this->attribute, $this->options);
-        } else {
-            return Html::textInput($this->name, $this->value, $this->options);
-        }*/
+        /* if ($this->hasModel()) {
+             return Html::activeTextInput($this->model, $this->attribute, $this->options);
+         } else {
+             return Html::textInput($this->name, $this->value, $this->options);
+         }*/
 
 
         $view = $this->getView();
@@ -79,34 +82,38 @@ class RatingInput extends InputWidget
     public function registerAssets($view)
     {
         $asset = RatingAsset::register($view);
-
+        if (!$this->imagePath) {
+            $this->imagePath = $asset->baseUrl . '/images/';
+        }
         if (!isset($this->options['starType'])) {
-            $this->options['starType'] = 'i';
+            $this->options['starType'] = 'img';
         }
         if (!isset($this->options['cancelOff'])) {
-            $this->options['cancelOff'] = $asset->baseUrl . '/images/cancel-off.png';
+            $this->options['cancelOff'] = $this->imagePath . 'cancel-off.png';
         }
         if (!isset($this->options['cancelOn'])) {
-            $this->options['cancelOn'] = $asset->baseUrl . '/images/cancel-on.png';
+            $this->options['cancelOn'] = $this->imagePath . 'cancel-on.png';
         }
         if (!isset($this->options['starHalf'])) {
-            $this->options['starHalf'] = $asset->baseUrl . '/images/star-half.png';
+            $this->options['starHalf'] = $this->imagePath . 'star-half.png';
         }
         if (!isset($this->options['starOff'])) {
-            $this->options['starOff'] = $asset->baseUrl . '/images/star-off.png';
+            $this->options['starOff'] = $this->imagePath . 'star-off.png';
         }
         if (!isset($this->options['starOn'])) {
-            $this->options['starOn'] = $asset->baseUrl . '/images/star-on.png';
+            $this->options['starOn'] = $this->imagePath . 'star-on.png';
         }
 
-        $name = isset($options['name']) ? $options['name'] : Html::getInputName($this->model, $this->attribute);
+        // $name = isset($options['name']) ? $options['name'] : Html::getInputName($this->model, $this->attribute);
         if (!isset($this->options['scoreName'])) {
-            $this->options['scoreName'] = $name;
+            $this->options['score'] = $this->hasModel() ? Html::getAttributeValue($this->model, $this->attribute) : $this->value;
+
+
+            //  $this->options['scoreName'] = $name;
         }
         $js = 'jQuery("#' . $this->getId() . '").raty(' . Json::encode($this->options) . ');';
         $view->registerJs($js, $view::POS_END);
     }
-
 
 
 }
