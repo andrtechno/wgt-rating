@@ -29,49 +29,21 @@ class RatingInput extends InputWidget
     public $options = [];
     public $imagePath;
 
-    /**
-     * Initializes the widget.
-     */
-    public function init()
-    {
-        parent::init();
-        $view = $this->getView();
-        $this->registerAssets($view);
-        if (!isset($this->containerOptions['class'])) {
-            $this->containerOptions['class'] = 'raty';
-        }
-        $this->initOptions();
-        echo Html::beginTag($this->containerTag, $this->containerOptions) . "\n";
-    }
-
     public function run()
     {
-        echo "\n" . Html::endTag($this->containerTag);
-    }
-
-    public function run2()
-    {
-        /* if ($this->hasModel()) {
-             return Html::activeTextInput($this->model, $this->attribute, $this->options);
-         } else {
-             return Html::textInput($this->name, $this->value, $this->options);
-         }*/
-
-
         $view = $this->getView();
         $this->registerAssets($view);
-    }
-
-    /**
-     * Intialises the plugin options
-     */
-    protected function initOptions()
-    {
 
         $this->containerOptions = array_merge([
             'id' => $this->getId()
         ], $this->containerOptions);
         Html::addCssClass($this->containerOptions, 'raty');
+
+
+        if (!isset($this->containerOptions['class'])) {
+            $this->containerOptions['class'] = 'raty';
+        }
+        return Html::tag($this->containerTag,'',$this->containerOptions);
     }
 
     /**
@@ -107,6 +79,7 @@ class RatingInput extends InputWidget
         if (!isset($this->options['scoreName'])) {
             $this->options['scoreName'] = $this->hasModel() ? Html::getInputName($this->model, $this->attribute) : $this->name;
         }
+        $this->options['score'] = $this->hasModel() ? Html::getAttributeValue($this->model, $this->attribute) : $this->value;
         $js = 'jQuery("#' . $this->getId() . '").raty(' . Json::encode($this->options) . ');';
         $view->registerJs($js, $view::POS_END);
     }
