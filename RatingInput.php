@@ -27,7 +27,6 @@ class RatingInput extends InputWidget
      * https://github.com/wbotelhos/raty#options
      */
     public $options = [];
-    public $imagePath;
 
     public function run()
     {
@@ -54,26 +53,12 @@ class RatingInput extends InputWidget
     public function registerAssets($view)
     {
         $asset = RatingAsset::register($view);
-        if (!$this->imagePath) {
-            $this->imagePath = $asset->baseUrl . '/images/';
-        }
         if (!isset($this->options['starType'])) {
             $this->options['starType'] = 'img';
         }
-        if (!isset($this->options['cancelOff'])) {
-            $this->options['cancelOff'] = $this->imagePath . 'cancel-off.png';
-        }
-        if (!isset($this->options['cancelOn'])) {
-            $this->options['cancelOn'] = $this->imagePath . 'cancel-on.png';
-        }
-        if (!isset($this->options['starHalf'])) {
-            $this->options['starHalf'] = $this->imagePath . 'star-half.png';
-        }
-        if (!isset($this->options['starOff'])) {
-            $this->options['starOff'] = $this->imagePath . 'star-off.png';
-        }
-        if (!isset($this->options['starOn'])) {
-            $this->options['starOn'] = $this->imagePath . 'star-on.png';
+
+        if (!isset($this->options['path'])) {
+            $this->options['path'] = $asset->baseUrl . '/images/';
         }
 
         if (!isset($this->options['scoreName'])) {
