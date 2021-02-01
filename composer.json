@@ -8,7 +8,7 @@
     "rating"
   ],
   "homepage": "https://github.com/andrtechno/wgt-rating",
-  "type": "yii2-extension",
+  "type": "pixelion-component",
   "license": "MIT",
   "authors": [
     {
