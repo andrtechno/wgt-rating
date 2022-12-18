@@ -64,6 +64,9 @@ class RatingInput extends InputWidget
         if (!isset($this->options['scoreName'])) {
             $this->options['scoreName'] = $this->hasModel() ? Html::getInputName($this->model, $this->attribute) : $this->name;
         }
+        if ($this->value) {
+            $this->options['score'] = $this->value;
+        }
         $this->options['score'] = $this->hasModel() ? Html::getAttributeValue($this->model, $this->attribute) : $this->value;
         $js = 'jQuery("#' . $this->getId() . '").raty(' . Json::encode($this->options) . ');';
         $view->registerJs($js, $view::POS_END);
